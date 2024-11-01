@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:shop/views/home_view.dart';
-import 'package:shop/views/upload_image.dart';
+
 
 class CameraInstructionsScreen extends StatelessWidget {
   final VoidCallback onGetStarted;

@@ -47,7 +47,7 @@ class PhotoUploadScreen extends StatelessWidget {
                   const SizedBox(width: 40),
                 ],
               ),
-SizedBox(height: 40,),
+              SizedBox(height: 40,),
 
 
               // Combined Photo and Upload Container

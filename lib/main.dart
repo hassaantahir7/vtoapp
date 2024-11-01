@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Clothing App',
       theme: new ThemeData(scaffoldBackgroundColor: const Color(0xFFFFFFFF)),
-      home: HomeView(),
+      home: OnboardingView(),
     );
   }
 }

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:shop/views/home_view.dart';
+import 'package:shop/views/model_profile.dart';
 import 'package:shop/views/upload_image.dart';
 import 'camera_instructions_screen.dart';
 import 'image_picker_controller.dart';
@@ -25,7 +26,7 @@ class ImagePickerScreen extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => const FrameCameraScreen(),
+              builder: (context) => FrameCameraScreen(),
             ),
           );
         },
@@ -182,54 +183,54 @@ class ImagePickerScreen extends StatelessWidget {
 
               const SizedBox(height: 20),
 
-              // Virtual Try-on Option (New)
-              // GestureDetector(
-              //   onTap: () => Navigator.push(
-              //     context,
-              //     MaterialPageRoute(builder: (context) => const FrameCameraScreen()),
-              //   ),
-              //   child: Container(
-              //     width: double.infinity,
-              //     height: 120,
-              //     decoration: BoxDecoration(
-              //       color: const Color(0xFFF7F8F9),
-              //       borderRadius: BorderRadius.circular(15),
-              //     ),
-              //     child: Column(
-              //       mainAxisAlignment: MainAxisAlignment.center,
-              //       children: [
-              //         Container(
-              //           padding: const EdgeInsets.all(12),
-              //           decoration: BoxDecoration(
-              //             color: Colors.white,
-              //             borderRadius: BorderRadius.circular(12),
-              //             boxShadow: [
-              //               BoxShadow(
-              //                 color: Colors.black.withOpacity(0.05),
-              //                 blurRadius: 4,
-              //                 offset: const Offset(0, 2),
-              //               ),
-              //             ],
-              //           ),
-              //           child: const Icon(
-              //             Icons.checkroom_outlined,
-              //             size: 28,
-              //             color: Color(0xFF1E232C),
-              //           ),
-              //         ),
-              //         const SizedBox(height: 8),
-              //         const Text(
-              //           'Virtual Try-on',
-              //           style: TextStyle(
-              //             fontSize: 16,
-              //             fontWeight: FontWeight.w500,
-              //             color: Color(0xFF1E232C),
-              //           ),
-              //         ),
-              //       ],
-              //     ),
-              //   ),
-              // ),
+
+              GestureDetector(
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => SelectProfileScreen()),
+                ),
+                child: Container(
+                  width: double.infinity,
+                  height: 120,
+                  decoration: BoxDecoration(
+                    color: const Color(0xFFF7F8F9),
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.all(12),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(12),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withOpacity(0.05),
+                              blurRadius: 4,
+                              offset: const Offset(0, 2),
+                            ),
+                          ],
+                        ),
+                        child: const Icon(
+                          Icons.checkroom_outlined,
+                          size: 28,
+                          color: Color(0xFF1E232C),
+                        ),
+                      ),
+                      const SizedBox(height: 8),
+                      const Text(
+                        'Virtual Try-on',
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w500,
+                          color: Color(0xFF1E232C),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
 
               const Spacer(),
 
