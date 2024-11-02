@@ -26,7 +26,7 @@ class _LoginViewState extends State<LoginView> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(
-                  height: 45,
+                  height:65,
                 ),
                 Text(
                   'Welcome back! \nGlad to see you, Again!',
@@ -61,7 +61,7 @@ class _LoginViewState extends State<LoginView> {
                     _loginController.setPassword(value);
                   },
                 ),
-                SizedBox(height: 10),
+                SizedBox(height: 5),
                 Align(
                   alignment: Alignment.centerRight,
                   child: TextButton(
@@ -179,7 +179,7 @@ class _LoginViewState extends State<LoginView> {
 
   Widget _buildSocialButton(String asset) {
     return Container(
-      width: 125,
+      width: 95,
       height: 56,
       padding: EdgeInsets.symmetric(vertical: 7),
       decoration: BoxDecoration(

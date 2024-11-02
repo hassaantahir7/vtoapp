@@ -12,8 +12,8 @@ class FrameCameraScreen extends StatefulWidget {
 }
 
 class _FrameCameraScreenState extends State<FrameCameraScreen> {
-  late CameraController _controller;
-  late Future<void> _initializeControllerFuture;
+  CameraController? _controller;
+  Future<void>? _initializeControllerFuture;
   bool isFrameAligned = false;
 
   @override
@@ -23,21 +23,26 @@ class _FrameCameraScreenState extends State<FrameCameraScreen> {
   }
 
   Future<void> _initializeCamera() async {
-    final cameras = await availableCameras();
-    final firstCamera = cameras.first;
-    _controller = CameraController(
-      firstCamera,
-      ResolutionPreset.high,
-    );
-    _initializeControllerFuture = _controller.initialize();
+    try {
+      final cameras = await availableCameras();
+      final firstCamera = cameras.first;
+      _controller = CameraController(
+        firstCamera,
+        ResolutionPreset.high,
+      );
+      _initializeControllerFuture = _controller?.initialize();
+      setState(() {});
+    } catch (e) {
+      // Handle camera initialization error
+      print('Error initializing camera: $e');
+    }
   }
 
   @override
   void dispose() {
-    _controller.dispose();
+    _controller?.dispose();
     super.dispose();
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,7 +55,7 @@ class _FrameCameraScreenState extends State<FrameCameraScreen> {
               return Stack(
                 children: [
                   // Camera Preview
-                  CameraPreview(_controller),
+                  CameraPreview(_controller!),
 
                   // Frame Overlay
                   Positioned.fill(
@@ -83,12 +88,12 @@ class _FrameCameraScreenState extends State<FrameCameraScreen> {
                     child: ElevatedButton.icon(
                       onPressed: () async {
                         try {
-                          final image = await _controller.takePicture();
+                          final image = await _controller?.takePicture();
                           Navigator.push(
                             context,
                             MaterialPageRoute(
                               builder: (context) => VirtualTryOnScreen(
-                                imagePath: image.path,
+                                imagePath: image!.path,
                               ),
                             ),
                           );

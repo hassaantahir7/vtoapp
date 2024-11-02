@@ -18,7 +18,7 @@ class LocationSettingView extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  const SizedBox(height: 10),
+                  const SizedBox(height: 40),
               // Header
               Row(
                 children: [

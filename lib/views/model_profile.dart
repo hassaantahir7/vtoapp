@@ -66,8 +66,27 @@ class SelectProfileScreen extends StatelessWidget {
       body: SafeArea(
         child: Stack(
           children: [
+            GestureDetector(
+              onTap: () => Navigator.pop(context),
+              child: Padding(
+                padding: const EdgeInsets.only(top: 10,left: 20),
+                child: Container(
+                  width: 40,
+                  height: 40,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8),
+                    color: Colors.white,
+                    border: Border.all(color: const Color(0xFFE8ECF4)),
+                  ),
+                  child: const Icon(
+                    Icons.arrow_back_ios_new,
+                    size: 20,
+                  ),
+                ),
+              ),
+            ),
             Positioned.fill(
-              bottom:  80,
+              bottom:  160,
               child: Container(
                 padding: EdgeInsets.symmetric(horizontal:30),
                 child: Image.asset(
@@ -76,44 +95,49 @@ class SelectProfileScreen extends StatelessWidget {
                 ),
               ),
             ),
-            Positioned(
-              bottom: 0,
-              left: 0,
-              right: 0,
-              child: Container(
-                padding: EdgeInsets.only(bottom: 20),
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.bottomCenter,
-                    end: Alignment.topCenter,
-                    colors: [Colors.white, Colors.white.withOpacity(0.0)],
-                    stops: [0.3, 0.8],
-                  ),
-                ),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Container(
-                      margin: EdgeInsets.only(bottom: 16),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          ProfileOption(image: 'assets/profile1.png', isSelected: false),
-                          SizedBox(width: 8),
-                          ProfileOption(image: 'assets/profile2.png', isSelected: true),
-                          SizedBox(width: 8),
-                          NewProfileButton(),
-                        ],
+           Padding(
+             padding: const EdgeInsets.only(top: 430),
+             child: Container(
+               height: 255,
+               width: 390,
+               decoration: BoxDecoration(
+
+                 borderRadius: BorderRadius.only(topRight: Radius.circular(20),topLeft: Radius.circular(20))
+                       ,color: Color(0xffFEFEFE)   ),
+               child: Column(
+                 children: [
+                   SizedBox(height: 16,),
+                  Row(
+                    children: [
+                      SizedBox(width: 15,),
+                      ProfileOption(image: 'assets/profile1.png', isSelected: false),
+                      SizedBox(width: 12),
+                      ProfileOption(image: 'assets/profile2.png', isSelected: true),
+                      SizedBox(width: 12),
+                      NewProfileButton(),
+                    ]),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 25,left: 03),
+                        child: ProgressDots(currentIndex: 0),
                       ),
-                    ),
-                    ProgressDots(currentIndex: 0),
-                    NextButton(
-                      onPressed: () => Navigator.push(context,MaterialPageRoute(builder: (context) => BodySizeScreen()))
-                    ),
-                  ],
-                ),
-              ),
-            ),
+SizedBox(height: 20,),
+GestureDetector(
+  onTap: (){
+    Navigator.push(context, MaterialPageRoute(builder: (context) => BodySizeScreen()));
+  },
+  child: Container(
+    height: 50,
+    width: 300,
+    decoration: BoxDecoration(
+      color: Color(0xff1E232C),
+      borderRadius: BorderRadius.circular(40),
+    ),child: Center(child: Text('Next',style: TextStyle(fontSize: 16,fontWeight: FontWeight.w600,color: Color(0xffFFFFFF)),),
+  ),),
+),
+                 ],
+               ),
+             ),
+           )
           ],
         ),
       ),
@@ -126,49 +150,95 @@ class BodySizeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-
+      backgroundColor: Color(0xffE6E6E6),
       body: SafeArea(
         child: Stack(
           children: [
+            GestureDetector(
+              onTap: () => Navigator.pop(context),
+              child: Padding(
+                padding: const EdgeInsets.only(top: 10,left: 20),
+                child: Container(
+                  width: 40,
+                  height: 40,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8),
+                    color: Colors.white,
+                    border: Border.all(color: const Color(0xFFE8ECF4)),
+                  ),
+                  child: const Icon(
+                    Icons.arrow_back_ios_new,
+                    size: 20,
+                  ),
+                ),
+              ),
+            ),
             Positioned.fill(
-              bottom: 130,
+              bottom:  160,
               child: Container(
-                padding: EdgeInsets.symmetric(horizontal: 40),
+                padding: EdgeInsets.symmetric(horizontal:30),
                 child: Image.asset(
                   'assets/model.png',
                   fit: BoxFit.contain,
                 ),
               ),
             ),
-            Positioned(
-              bottom: 0,
-              left: 0,
-              right: 0,
+            Padding(
+              padding: const EdgeInsets.only(top: 430),
               child: Container(
-                padding: EdgeInsets.all(16),
+                height: 255,
+                width: 390,
                 decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.bottomCenter,
-                    end: Alignment.topCenter,
-                    colors: [Colors.white, Colors.white.withOpacity(0.0)],
-                    stops: [0.3, 0.8],
-                  ),
-                ),
+
+                    borderRadius: BorderRadius.only(topRight: Radius.circular(20),topLeft: Radius.circular(20))
+                    ,color: Color(0xffFEFEFE)   ),
                 child: Column(
                   children: [
-                    DropdownField(label: 'Your size', value: 'Female'),
-                    SizedBox(height: 12),
-                    DropdownField(label: 'Waist size', value: 'Medium'),
-                    SizedBox(height: 16),
-                    ProgressDots(currentIndex: 1),
-                    NextButton(
-                        onPressed: () => Navigator.push(context,MaterialPageRoute(builder: (context) => ImageStyleScreen()))
+                    SizedBox(height: 16,),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 20),
+                      child: Row(
+                          children: [
+
+                            DropdownField(label: 'Country',),
+                            SizedBox(width: 20,),
+                            DropdownField(label: 'Height',),
+
+                          ]),
+                    ), SizedBox(height: 16,),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 20),
+                      child: Row(
+                          children: [
+
+                            DropdownField(label: 'Country',),
+                            SizedBox(width: 20,),
+                            DropdownField(label: 'Height',),
+
+                          ]),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 25,left: 03),
+                      child: ProgressDots(currentIndex: 1),
+                    ),
+                    SizedBox(height: 20,),
+                    GestureDetector(
+                      onTap: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => ImageStyleScreen()));
+                      },
+                      child: Container(
+                        height: 50,
+                        width: 300,
+                        decoration: BoxDecoration(
+                          color: Color(0xff1E232C),
+                          borderRadius: BorderRadius.circular(40),
+                        ),child: Center(child: Text('Next',style: TextStyle(fontSize: 16,fontWeight: FontWeight.w600,color: Color(0xffFFFFFF)),),
+                      ),),
                     ),
                   ],
                 ),
               ),
-            ),
+            )
           ],
         ),
       ),
@@ -180,64 +250,85 @@ class BodySizeScreen extends StatelessWidget {
 class ImageStyleScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
+    return  Scaffold(
+      backgroundColor: Color(0xffE6E6E6),
       body: SafeArea(
         child: Stack(
           children: [
+            GestureDetector(
+              onTap: () => Navigator.pop(context),
+              child: Padding(
+                padding: const EdgeInsets.only(top: 10,left: 20),
+                child: Container(
+                  width: 40,
+                  height: 40,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8),
+                    color: Colors.white,
+                    border: Border.all(color: const Color(0xFFE8ECF4)),
+                  ),
+                  child: const Icon(
+                    Icons.arrow_back_ios_new,
+                    size: 20,
+                  ),
+                ),
+              ),
+            ),
             Positioned.fill(
-              bottom: 120,
+              bottom:  160,
               child: Container(
-                padding: EdgeInsets.symmetric(horizontal: 40),
+                padding: EdgeInsets.symmetric(horizontal:30),
                 child: Image.asset(
                   'assets/model.png',
                   fit: BoxFit.contain,
                 ),
               ),
             ),
-            Positioned(
-              bottom: 0,
-              left: 0,
-              right: 0,
+            Padding(
+              padding: const EdgeInsets.only(top: 430),
               child: Container(
-                padding: EdgeInsets.all(16),
+                height: 255,
+                width: 390,
                 decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.bottomCenter,
-                    end: Alignment.topCenter,
-                    colors: [Colors.white, Colors.white.withOpacity(0.0)],
-                    stops: [0.3, 0.8],
-                  ),
-                ),
+
+                    borderRadius: BorderRadius.only(topRight: Radius.circular(20),topLeft: Radius.circular(20))
+                    ,color: Color(0xffFEFEFE)   ),
                 child: Column(
                   children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        StyleOption(image: 'assets/style1.png', isSelected: true),
-                        StyleOption(image: 'assets/profile1.png'),
-                        StyleOption(image: 'assets/style3.png'),
-                        Container(
-                          width: 70,
-                          height: 70,
-                          margin: EdgeInsets.only(left: 8),
-                          decoration: BoxDecoration(
-borderRadius: BorderRadius.circular(10),
-                            color: Colors.grey[200],
-                          ),
-                          child: Icon(Icons.camera_alt_outlined, color: Colors.grey[600]),
-                        ),
-                      ],
+                    SizedBox(height: 16,),
+                    SingleChildScrollView(
+                      child: Row(
+                          children: [
+                            SizedBox(width: 15,),
+                            ProfileOption(image: 'assets/profile1.png', isSelected: false),
+                            SizedBox(width: 12),
+                            ProfileOption(image: 'assets/profile2.png', isSelected: true),
+                            SizedBox(width: 12),
+                            NewProfileButton(),
+                          ]),
                     ),
-                    SizedBox(height: 16),
-                    ProgressDots(currentIndex: 2),
-                    NextButton(
-                        onPressed: () => Navigator.push(context,MaterialPageRoute(builder: (context) => UploadImageScreen()))
+                    Padding(
+                      padding: const EdgeInsets.only(top: 25,left: 03),
+                      child: ProgressDots(currentIndex: 2),
+                    ),
+                    SizedBox(height: 20,),
+                    GestureDetector(
+                      onTap: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => UploadImageScreen()));
+                      },
+                      child: Container(
+                        height: 50,
+                        width: 300,
+                        decoration: BoxDecoration(
+                          color: Color(0xff1E232C),
+                          borderRadius: BorderRadius.circular(40),
+                        ),child: Center(child: Text('Next',style: TextStyle(fontSize: 16,fontWeight: FontWeight.w600,color: Color(0xffFFFFFF)),),
+                      ),),
                     ),
                   ],
                 ),
               ),
-            ),
+            )
           ],
         ),
       ),
@@ -403,17 +494,15 @@ class ProfileOption extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 70,
-      width: 70,
+      height: 92,
+      width: 92,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20),
-        border: Border.all(
-          color: isSelected ? Colors.black : Colors.transparent,
-          width: 2,
-        ),
+        borderRadius: BorderRadius.circular(8),
+        color: Color(0xffD1DFC3),
+
       ),
       child: ClipRRect(
-        borderRadius: BorderRadius.circular(18),
+        borderRadius: BorderRadius.circular(8),
         child: Image.asset(
           image,
           fit: BoxFit.cover,
@@ -427,23 +516,40 @@ class NewProfileButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 40,
-      width: 40,
+      height: 85,
+      width: 85,
       decoration: BoxDecoration(
         color: Color(0xFFF5F5F5),
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(8),
       ),
-      child: Center(
-        child: Text(
-          'New\nProfile',
-          style: TextStyle(
-            fontSize: 10,
-            color: Colors.black87,
-            fontWeight: FontWeight.w500,
-            height: 1.1,
-          ),
-          textAlign: TextAlign.center,
-        ),
+
+        child: Column(
+          children: [
+            Center(
+              child: Padding(
+                padding: const EdgeInsets.only(top: 15),
+                child: Container(
+                  height: 30,
+                  width: 30,
+                  decoration: BoxDecoration(
+                    color: Color(0xffFFFFFF),
+                    borderRadius: BorderRadius.circular(8)
+                  ),child: Icon(Icons.add,color: Color(0xff98A2B3),),
+                ),
+              ),
+            ),
+            Text(
+              'New Profile',
+              style: TextStyle(
+                fontSize: 13,
+                color: Colors.black87,
+                fontWeight: FontWeight.w500,
+                height: 1.1,
+              ),
+              textAlign: TextAlign.center,
+            ),
+          ],
+
       ),
     );
   }
@@ -507,45 +613,41 @@ class NextButton extends StatelessWidget {
 
 class DropdownField extends StatelessWidget {
   final String label;
-  final String value;
 
-  const DropdownField({required this.label, required this.value});
+
+  const DropdownField({required this.label, });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(12),
+      padding: EdgeInsets.only(right: 75,top: 20),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8),
-        color: Colors.grey[100],
+        color: Color(0xFFF7F8F9), // Background color #F7F8F9
+        border: Border.all(
+          color: Color(0xFFDADADA), // Border color #DADADA
+          width: 1, // Border width
+        ),
       ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text(
-            label,
-            style: TextStyle(
-              color: Colors.grey[600],
-              fontSize: 14,
-            ),
-          ),
+      child:
           Row(
             children: [
-              Text(
-                value,
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 14,
-                  fontWeight: FontWeight.w500,
+              Center(
+                child: Text(label,
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 14,
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
               ),
               SizedBox(width: 4),
               Icon(Icons.keyboard_arrow_down, size: 20),
-            ],
-          ),
+
         ],
       ),
     );
+
   }
 }
 

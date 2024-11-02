@@ -12,7 +12,7 @@ class CongratulationsView extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              const SizedBox(height: 15),
+              const SizedBox(height: 40),
               // Header
               Row(
                   children: [
@@ -35,14 +35,23 @@ class CongratulationsView extends StatelessWidget {
 
                   SizedBox(
                     width: 150,
+                    height: 30,
                   ),
-                 CircleAvatar(
-                   backgroundColor: Colors.transparent,
-                   child: Image.asset('assets/blackTick.png'),
+                 Container(
+                   height: 162,
+                   width: 172,
+                   child:  CircleAvatar(
+                     backgroundColor: Colors.transparent, // Make background transparent
+                     child: SvgPicture.asset(
+                       'assets/congratulatins.svg',
+                       width: 172, // Adjust size as needed
+                       height: 162,
+                     ),
+                   ),
                  )
 
            ,
-              SizedBox(height: 10),
+              SizedBox(height: 20),
               Text(
                 'Congratulations!',
                 style: TextStyle(

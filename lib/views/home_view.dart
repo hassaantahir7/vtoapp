@@ -77,10 +77,12 @@ class _HomeViewState extends State<HomeView> {
 
                       )
                     ),
-                    child: Image.asset(
-                      'assets/filter.png',
-                      height: 5,
-                      width: 5,
+                    child: Center(
+                      child: Image.asset(
+                        'assets/filter.png',
+                        height: 28,
+                        width: 28,
+                      ),
                     ),
                   ),
                 ],
@@ -144,8 +146,8 @@ Navigator.push(context, MaterialPageRoute(builder: (context) => ImagePickerScree
         Spacer(),
         Image.asset(
           'assets/bell.png',
-          height: 60,
-          width: 60,
+          height: 70,
+          width: 70,
         ),
       ],
     );
@@ -156,7 +158,7 @@ Navigator.push(context, MaterialPageRoute(builder: (context) => ImagePickerScree
       padding: const EdgeInsets.all(16.0),
       child: Container(
         width: size.width,
-        height: size.height * 0.20,
+        height: size.height * 0.195,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
           color: Colors.grey[300],
@@ -184,7 +186,7 @@ Navigator.push(context, MaterialPageRoute(builder: (context) => ImagePickerScree
                   Text('Get 40% Off for \nall items',
                       style:
                           TextStyle(fontSize: 20, fontWeight: FontWeight.w700,color: Color(0xff061023))),
-                  SizedBox(height: 5),
+                  SizedBox(height: 2),
                   Row(
                     children: [
                       Text(

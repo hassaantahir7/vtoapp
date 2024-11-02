@@ -20,7 +20,7 @@ class GenderSelectionView extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  const SizedBox(height: 30),
+                  const SizedBox(height: 55),
               // Header
               Row(
                 children: [
